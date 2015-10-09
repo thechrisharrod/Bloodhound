@@ -7,6 +7,7 @@ if($arrComputers -eq $Null){
     #change this if you want to hit servers
     $arrComputers = Get-ADComputer -Properties Name, OperatingSystem -Filter {OperatingSystem -NOTLIKE "Windows Server*"}
 }
+
 $arrSelection = $arrComputers | Sort-Object {Get-Random} #|  select-object -Last 50
 $i = $arrSelection.count
 foreach ($Computer in $arrSelection){
