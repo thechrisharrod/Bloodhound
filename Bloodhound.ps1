@@ -52,9 +52,6 @@ foreach ($Computer in $arrSelection){
                         if ($Consumers -ne $Null){
                             Add-Content $ResultsPath $Consumers
                         }
-                        #if ($CommandLines -ne $Null){
-                        #    Add-Content $ResultsPath $CommandLines
-                        #}
                         if ($Bindings -ne $Null){
                             Add-Content $ResultsPath $Bindings
                         }
