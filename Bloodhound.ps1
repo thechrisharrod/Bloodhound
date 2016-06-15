@@ -1,5 +1,6 @@
 # Author: Chris Harrod
 # Purpose: Find permanent WMI event consumers on endpoints that could be used by APT actors.
+# Now uses runspaces rather than jobs.
 # Updated: 6/15/16
 
 $ResultsPath = "C:\temp\Results\Bloodhound"
@@ -10,7 +11,7 @@ if($arrComputers -eq $Null){
 
 $arrSelection = $arrComputers | Sort-Object {Get-Random} #|  select-object -Last 2000
 
-$MaxThreads = 3
+$MaxThreads = 25
 $RunspacePool = [RunspaceFactory ]::CreateRunspacePool(1, $MaxThreads)
 $RunspacePool.Open()
 $RunspaceCollection = New-Object system.collections.arraylist
